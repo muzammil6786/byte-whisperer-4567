@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     avatar:{
         type:String
     },
+    interests:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:"Category"
+    }
     
     
 })
