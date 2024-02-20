@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form id="register-form"style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;padding: 5px; background-color: black;color: white; "  action="">
+    <input id="name" type="text" name="name">
+    <input id="email" type="email" name="email">
+    <input id="file" type="file" name="file"> 
+    <input id="password" type="password" name="password">
+    <input id="submit" type="submit" value="submit">
+</form>
+</body>
+<script>
+
+    const form = document.getElementById("register-form");
+    
+
+    form.addEventListener("submit", (e) => {
+        const name = document.getElementById("name");
+    const email = document.getElementById("email");
+     const file = document.getElementById("file");
+    const password = document.getElementById("password");
+        e.preventDefault();
+        fetch("http://localhost:9000/users/register", {
+            
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: name.value,
+                email: email.value, 
+                password: password.value,
+                 avatar: file.value,
+            })
+        }).then((res) => {
+            return  res.json();
+        }).then((data) => {
+            console.log(data);
+            window.location.href = "index.html";
+        }).catch((err) => {
+            console.log(err);
+        })
+        e.target.reset();
+    })
+
+</script>
+</html>
