@@ -1,11 +1,12 @@
 const groupRouter = require("express").Router()
+const auth = require("../middlewares/auth.middleware")
 
 const groupController = require("../controllers/groups.controller")
 
-groupRouter.post("/",groupController.createGroup)
-groupRouter.get("/",groupController.getAllGroups)
-groupRouter.get("/:id",groupController.getGroup)
-groupRouter.patch("/:id",groupController.updateGroup)
-groupRouter.delete("/:id",groupController.deleteGroup)
+groupRouter.post("/",auth,groupController.createGroup)
+groupRouter.get("/",auth,groupController.getAllGroups)
+groupRouter.get("/:id",auth,groupController.getGroup)
+groupRouter.patch("/:id",auth,groupController.updateGroup)
+groupRouter.delete("/:id",auth,groupController.deleteGroup)
 
 module.exports = groupRouter

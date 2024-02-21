@@ -1,18 +1,39 @@
+
+
+
+
+
+
 const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 const login = document.getElementById("login");
 const register = document.getElementById("register");
+
+const token = JSON.parse(localStorage.getItem("token"))
+console.log(token);
+if(!token){
+    loginForm.classList.remove("hidden");
+    loginForm.classList.add("flex");
+}
+
+
+
 login.addEventListener("click", () => {
-    loginForm.style.display = "flex";
-    registerForm.style.display = "none";
+    loginForm.classList.remove("hidden");
+    loginForm.classList.add("flex");
+    registerForm.classList.add("hidden");
+    registerForm.classList.remove("flex");
 })
 register.addEventListener("click", () => {
-    loginForm.style.display = "none";
-    registerForm.style.display = "flex";
+    loginForm.classList.add("hidden");
+    loginForm.classList.remove("flex");
+    registerForm.classList.remove("hidden");
+    registerForm.classList.add("flex");
 })
 
 if(!localStorage.getItem("token")){
-    loginForm.style.display = "flex";
+    loginForm.classList.remove("hidden");
+    loginForm.classList.add("flex");
 }
 
 
@@ -39,7 +60,8 @@ loginForm.addEventListener("submit", (e) => {
         return  res.json();
     }).then((data) => {
         console.log(data);
-        loginForm.style.display = "none";
+        loginForm.classList.add("hidden");
+        loginForm.classList.remove("flex");
     }).catch((err) => {
         console.log(err);
     })
@@ -57,7 +79,6 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
     e.preventDefault();
     fetch("http://localhost:9000/users/register", {
-        
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -66,14 +87,18 @@ const password = document.getElementById("password");
             username: name.value,
             email: email.value, 
             password: password.value,
-             avatar: file.value,
+            interests:[]
+             //avatar: file.value,
         })
     }).then((res) => {
         return  res.json();
     }).then((data) => {
         console.log(data);
-        loginForm.style.display = "flex";
-        registerForm.style.display = "none";
+        loginForm.classList.add("flex");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.remove("flex");
+        registerForm.classList.add("hidden");
+        
     }).catch((err) => {
         console.log(err);
     })
