@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFFCF2;
+        }
+
+        .bodymz {
+            background-image: url("bgmz.png");
+            height: auto;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .contmz {
+            display: flex;
+            width: 85%;
+            margin-left: 100px;
+            column-gap: 50px;
+            row-gap: 50px;
+            margin-top: 40px;
+            gap: 50px;
+        }
+
+        .contmz1 {
+            width: 60%;
+        }
+
+        .contmz1 p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contmz1 h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contmz1 button {
+            padding: 15px 40px;
+            background-color: #ff692e;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .contmzimg img {
+            width: 100%;
+            border-radius: 10px;
+            height: 350px;
+        }
+
+        /* cards */
+        .h1mz {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cardmz {
+            width: auto;
+            padding: 20px;
+            /* border: 1px solid #ccc; */
+            border-radius: 5px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .cardmz h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cardmz p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cardmz button {
+            padding: 10px 20px;
+            background-color: #ff692e;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cardmz button:hover {
+            background-color: #000000;
+        }
+
+        .maincardmz {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 100px;
+            width: 85%;
+            /* border: 1px solid black; */
+        }
+
+        /* cards section */
+
+        .cardzm1 {
+            width: 300px;
+            height: 500px;
+            border: 1px solid #fffdfd;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect */
+        .cardzm1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+
+        .cardzm1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgb(254, 255, 254);
+            z-index: 2;
+            background-color: white;
+            /* background-color: #FFFCF2; */
+        }
+
+        /* Text color on hover */
+
+        .cardzm1:hover .card-description {
+            color: #000000;
+        }
+
+        .cardzm1:hover .card-heading {
+            color: #555;
+        }
+
+
+        /* Card image */
+        .cardzm1 img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Card content */
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Card heading */
+        .card-heading {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Card description */
+        .card-description {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+        }
+
+        .cardfull2 {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 100px;
+            width: 85%;
+            /* border: 1px solid black; */
+        }
+
+        .cardfull1 h1 {
+            text-align: center;
+        }
+
+        .cardfull1 p {
+            text-align: center;
+            color: #555;
+            margin-left: 350px;
+            width: 50%;
+        }
+
+        .buttonmz {
+            padding: 10px 20px;
+            background-color: #ff692e;
+            color: #fff;
+            border: none;
+            margin: 10px;
+            width: 200px;
+            height: 50px;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+        }
+
+        .buttonmz:hover {
+            background-color: #000000;
+        }
+
+
+        /*  */
+        /* ------------------footer----------- */
+        #footer {
+            /* comment this first line while using footer */
+            margin-top: 10px;
+            background-color: #252422;
+            height: 450px;
+            padding: 40px;
+        }
+
+
+        #footer-items {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        #first {
+            background-color: transparent;
+        }
+
+
+
+        #first>p {
+            background-color: transparent;
+            color: #CCC5B9;
+            font-size: 20px;
+        }
+
+        .h2 {
+            background-color: #252422;
+            color: #FFFCF2;
+        }
+
+        #second {
+            background-color: transparent;
+        }
+
+        #second>p {
+            background-color: transparent;
+            color: #CCC5B9;
+            font-size: 17px;
+            padding: 3px;
+        }
+
+        #third {
+            background-color: transparent;
+
+        }
+
+        #third-content a {
+            display: grid;
+            text-decoration: none;
+            color: #CCC5B9;
+            font-size: 17px;
+            padding: 3px;
+        }
+
+        #third-content a:hover {
+            color: #EB5E28;
+
+        }
+
+        #third-heading h2 {
+            margin-bottom: 10px;
+        }
+
+        #fourth h2 {
+            margin-bottom: 10px;
+        }
+
+        #location {
+            display: flex;
+        }
+
+        #location-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        #contact-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        #email-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        svg {
+
+            height: 20px;
+        }
+
+        #contact {
+
+            display: flex;
+        }
+
+        #email {
+            display: flex;
+        }
+
+        #location-address p {
+            color: rgb(155, 155, 155);
+        }
+
+        #contact-info {
+            color: rgb(155, 155, 155);
+        }
+
+        #email-info {
+            color: rgb(155, 155, 155);
+        }
+
+        #container {
+            margin-top: 160px;
+            width: 100%;
+            border: 1px solid #FFFCF2;
+        }
+
+        #copyright p {
+            color: #ddd9d2;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        #How_works h2 {
+            background-color: transparent;
+        }
+
+        #Navbar-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 86px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bodymz">
+        <div class="contmz">
+            <div class="contmz1">
+                <h1 id="titleText">Eventous—The people platform. Where interests become <span id="dynamicText"
+                        style="color: #ff692e;"></span>.</h1>
+                <p>Your new community is waiting for you. people have chosen Eventous to make
+                    real connections over shared interests. Start a group today.</p><br><br><br>
+                <a href="discover.html"><button>START GROUP</button></a>
+            </div>
+            <div class="contmzimg">
+                <img src="./image.start/img1.png" alt="image" id="image">
+            </div>
+        </div>
+        <br>
+        <!-- cards -->
+        <div>
+            <h1 class="h1mz">Eventous makes it easy to build a community</h1>
+        </div>
+        <div class="maincardmz">
+
+
+            <div class="cardmz">
+                <img src="./image.start/cimg1.png" alt="" style="width: 40%;">
+                <h2>Reach New People</h2>
+                <p>Connect with people in your area who are curious about the things you love.</p>
+                <a href="discover.html"><button>START NOW ▶</button></a>
+            </div>
+
+            <div class="cardmz">
+                <img src="./image.start/cimg2.png" alt="" style="width: 30%;">
+                <h2>An App for Organizing</h2>
+                <p>Chat with attendees, take attendance, and make updates to your events with the Eventous for
+                    Organizers
+                    app.</p>
+                <a href="discover.html"><button>START NOW ▶</button></a>
+            </div>
+
+            <div class="cardmz">
+                <img src="image.start/cimg3.png" alt="" style="width: 30%;">
+                <h2>Continuous Growth</h2>
+                <p>We’ll keep promoting your group throughout our network so it continues to grow.</p>
+                <a href="discover.html"><button>START NOW ▶</button></a>
+            </div>
+
+            <div class="cardmz">
+                <img src="./image.start/cimg4.png" alt="" style="width: 30%;">
+                <h2>Offset Costs</h2>
+                <p>Get support from your group members with member dues, event fees, or our fundraising tools.</p>
+                <a href="discover.html"><button>START NOW ▶</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- sssss cards -->
+
+
+
+    <!-- Card 1 -->
+    <div class="cardfull1">
+
+        <h1> Make 2024 your year with Meetup</h1>
+        <p>It’s easy to quickly make new friends. There are more than 60 million people on Meetup looking to gather over
+            shared interests and hobbies, build professional networks, or just have some fun.</p>
+    </div>
+    <div class="cardfull2">
+
+        <div class="cardzm1">
+            <img src="./image.start/mtz1.png" alt="Card 1 Image">
+            <div class="card-content">
+                <h2 class="card-heading">Build lasting friendships</h2>
+                <p class="card-description">Spark new friendships. Start a group to meet people who are new in town
+                    or longtime locals. Enjoy nightlife, happy hours, game nights, music, and more.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="cardzm1">
+            <img src="./image.start/mtz2.png" alt="Card 2 Image">
+            <div class="card-content">
+                <h2 class="card-heading">Build healthy habits</h2>
+                <p class="card-description">What are your health goals this year? Start a group to practice yoga,
+                    meditate, eat better, play a sport, run, hike, bike, and meet your goals together.
+                </p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="cardzm1">
+            <img src="./image.start/mtz3.png" alt="Card 3 Image">
+            <div class="card-content">
+                <h2 class="card-heading">Build a network for career success</h2>
+                <p class="card-description">From real estate and cryptocurrency to entrepreneurship and business
+                    development, there are people who share your professional interests on Meetup. Start a group and
+                    get connected.</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="cardzm1">
+            <img src="./image.start/mtz4.png" alt="Card 4 Image">
+            <div class="card-content">
+                <h2 class="card-heading">Prioritize your passions</h2>
+                <p class="card-description">Meet people who share your love for art, crafts, writing, dancing,
+                    photography, language, or music. Teach lessons or start a culture exchange when you create a
+                    group.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cardfull3" style="text-align: center; margin: 30px;">
+
+        <a href="discover.html"><button class="buttonmz">START GROUP</button></a>
+    </div>
+    <!-- footer -->
+    <!-- Footer --------------------------->
+
+    <section>
+
+        <div id="footer">
+            <div id="footer-items">
+                <div id="first">
+                    <img src="./image.start/try3.png" id="Navbar-logo">
+                    <p>Eventous is an Event</p>
+                    <p>Management company. Our</p>
+                    <p>commitment to Privacy and</p>
+                    <p>Creativity has given us the</p>
+                    <p>more than 100k Happy users.</p>
+                </div>
+                <div id="second">
+                    <p>
+                    <h2 class="h2">Quick links</h2>
+                    </p>
+                    <p>Playnow - Video Streaming Platform</p>
+                    <p>Melodify - Music Streaming Platform</p>
+                    <p>Eventz - Event Ticketing Platform</p>
+                    <p>Portfolio</p>
+                    <p>Tradeshows</p>
+
+                </div>
+                <div id="third">
+                    <div id="third-heading">
+                        <p>
+                        <h2 class="h2">Our Policy</h2>
+                        </p>
+                    </div>
+                    <div id="third-content">
+                        <a href="#">Privacy policy</a>
+                        <a href="#">Refund Policy</a>
+                        <a href="#">Terms and Conditions</a>
+                        <a href="#">Case Studies</a>
+                        <!-- <p>Privacy policy</p>
+                <p>Refund Policy</p>
+                <p>Terms and Conditions</p>
+                <p>Case Studies</p> -->
+                    </div>
+                </div>
+                <div id="fourth">
+                    <h2 class="h2">Contact Us</h2>
+                    <div id="location">
+                        <div id="location-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div id="location-address">
+                            <p><b>
+                                    <h3 style="color:#CCC5B9;">Head Office</h3>
+                                </b></p>
+                            <p>Near,Rajiv Chowk</p>
+                            <p>Metro Station New,</p>
+                            <p>delhi-110001</p>
+                        </div>
+                    </div>
+
+                    <div id="contact">
+                        <div>
+                            <div id="contact-icon"><i class="fa-solid fa-phone"></i>
+                            </div>
+                        </div>
+                        <div id="contact-info">
+                            <p><b>
+                                    <h3 style="color:#CCC5B9;">Contact Number</h3>
+                                </b></p>
+                            <p>1800-180-9898</p>
+                        </div>
+                    </div>
+                    <div id="email">
+                        <div>
+                            <div id="email-icon"> <i class="fa-solid fa-envelope"></i> </div>
+                        </div>
+                        <div id="email-info">
+                            <p><b>
+                                    <h3 style="color:#CCC5B9;"> Email</h3>
+                                </b></p>
+                            <p>Eventous@management.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section>
+                <!-- <div id="container"></div> -->
+                <div id="copyright">
+                    <p>Copyright © 2024 Eventous | All rights reserved.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+
+<script>
+    const images = ["./image.start/img1.png", "./image.start/img2.png", "./image.start/img3.png", "./image.start/img4.png", "./image.start/img5.png"];
+    let currentIndex = 0;
+
+    // Function to change the image every second
+    function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById('image').src = images[currentIndex];
+        setTimeout(changeImage, 2000);
+    }
+
+    const dynamicWords = ["friendship", "career", "community", "skills", "network", "passion"];
+    let currentIndex1 = 0;
+
+    // Function to change the word every second
+    function changeDynamicWord() {
+        currentIndex1 = (currentIndex1 + 1) % dynamicWords.length;
+        document.getElementById('dynamicText').textContent = dynamicWords[currentIndex1];
+        setTimeout(changeDynamicWord, 2000);
+    }
+
+    changeDynamicWord();
+    changeImage();
+</script>
