@@ -3,7 +3,8 @@ const mongoose = require("mongoose")
 const groupSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:true
+        unique:[true,"Group already exists"],
+        required:true,
     },
     description:{
         type:String,
@@ -22,11 +23,15 @@ const groupSchema = new mongoose.Schema({
         type:[mongoose.Schema.Types.ObjectId],
         ref:"User"
     },
-    topics:{
+    interests:{
         type:[mongoose.Schema.Types.ObjectId],
         ref:"Category"
     }
 
+},{
+    timestamps:true,
+    versionKey:false,
+    validateBeforeSave:true
 })
 
 const GroupModel = mongoose.model("Group",groupSchema)
