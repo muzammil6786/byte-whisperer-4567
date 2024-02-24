@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+}
+h3{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* ------------------navbar------------------------- */
+#navbar{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #252422;
+    justify-content: space-evenly;
+  
+}
+
+#navbar>#contactus{
+    background-color: #EB5E28;
+    border-radius:10px ;
+
+}
+#navbar>#contactus:hover{
+    scale: 1.1;
+    color: #FFFCF2;
+}
+#navbar a{
+    text-decoration: none;
+    background-color: #252422;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#navbar a:hover{
+    color: #EB5E28;
+    scale: 1.1;
+}
+#navbar img{
+    
+}
+#Navbar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 86px;
+    margin-right: 10px;
+}
+
+
+/* ------------------footer----------- */
+#footer{
+    /* comment this first line while using footer */
+    margin-top: 10px;  
+    background-color: #252422;
+    height: 450px;
+    padding: 40px;
+}
+
+
+#footer-items{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: transparent;
+}
+
+#first{
+    background-color: transparent;
+}
+
+
+
+#first>p{
+    background-color: transparent;
+    color: #CCC5B9;
+    font-size: 20px;
+}
+
+h2{
+    background-color: #252422;
+    color: #FFFCF2;
+}
+
+#second{
+    background-color: transparent;
+}
+#second > p{
+    background-color: transparent;
+    color: #CCC5B9;
+    font-size: 17px;
+    padding: 3px;
+}
+
+#third{
+    background-color: transparent;
+    
+}
+
+#third-content a{
+    display: grid;
+    text-decoration: none;
+    color: #CCC5B9;
+    font-size: 17px;
+    padding: 3px;
+}
+
+#third-content a:hover{
+    color: #EB5E28;
+    
+}
+#third-heading h2{
+    margin-bottom: 10px;
+}
+#fourth h2{
+margin-bottom: 10px;
+}
+
+#location{
+    display: flex;
+   
+}
+
+#location-icon{
+    color: #EB5E28;
+    width: 25px;
+}
+#contact-icon{
+    color: #EB5E28;
+    width: 25px;
+}
+
+#email-icon{
+    color: #EB5E28;
+    width: 25px;
+}
+ 
+svg{
+    
+    height: 20px;
+}
+
+#contact{
+    
+    display: flex;
+    
+
+}
+
+#email{
+    display: flex;
+}
+
+#location-address p{
+    color: rgb(155, 155, 155);
+}
+
+#contact-info{
+    color: rgb(155, 155, 155);
+}
+
+#email-info{
+    color: rgb(155, 155, 155);
+}
+#container{
+    margin-top: 160px;
+    width: 100%;
+    border : 1px solid #FFFCF2;
+
+}
+#copyright p{
+    color: #ddd9d2;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#How_works h2{
+    background-color: transparent;
+}
+.cardmz h2{
+    background-color: transparent;
+    color: #252422;
+    font-weight: 800;
+}
