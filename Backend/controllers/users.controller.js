@@ -1,118 +1,212 @@
-const UsersModel = require("../models/users.model")
+const {UsersModel} = require("../models/users.model.js")
 const BlacklistModel = require("../models/blacklist.model")
-const jwt = require("jsonwebtoken")
+const GroupsModel = require("../models/groups.model")
+const EventsModel = require("../models/events.model")
 require("dotenv").config()
+const {ApiError} = require("../utils/ApiError")
+const {ApiResponse} = require("../utils/ApiResponse.js")
+const {asyncHandler} =require("../utils/asyncHandler.js")
 const path = require("path")
 const bcrypt = require("bcrypt")
 const multer = require("multer")
 const upload = multer({dest:"uploads/avatars/"})
 
 
+const generateAccessAndRefereshTokens = async(userId) =>{
+    try {
+        const user = await UsersModel.findById(userId)
+        const accessToken = user.generateAccessToken()
+        const refreshToken = user.generateRefreshToken()
+
+        user.refreshToken = refreshToken
+        await user.save({ validateBeforeSave: false })
+
+        return {accessToken, refreshToken}
+
+
+    } catch (error) {
+        console.log(error);
+        throw new ApiError(500, "Something went wrong while generating referesh and access token")
+    }
+}
+
 const register = async(req,res)=>{
 
     try{
-        const {username,email,password,avatar,interests} = req.body
-        if(!username||!email||!password){
-            res.status(400).send("All fields are required")
+        const {name,username,email,password,avatar,interests} = req.body
+        if(!name||!username||!email||!password){
+            throw new ApiError(400,"All fields are required")
         }
         // upload.single("file")(req,res,async(err)=>{
         //     if(err){
         //         return res.status(400).send("Error uploading file")
         //     }
-            const hashedPassword = await bcrypt.hash(password,+process.env.SALT_ROUNDS)
-            const newUser = new UsersModel({
+            
+            const user = new UsersModel({
+                name,
                 username,
                 email,
-                password:hashedPassword,
+                password,
                 //avatar:req.file.path,
                 interests
             })
             //})
-            await newUser.save()
-            res.send("User created successfully")
+            await user.save()
+            const newUser = await UsersModel.findById(user._id).select("-password -refreshToken")
+            res.status(201).send(new ApiResponse(201, "User created successfully", newUser))
         }catch(err){
         res.status(500).send({error:err.message})
     }
 }
 
-const login = async(req,res)=>{
-  try { 
-    const {username,email,password} = req.body
-    if((!username&&!email)||!password){
-        res.status(400).send("All fields are required")
-    }
+const login = asyncHandler(async(req,res)=>{
+    const {email, username, password} = req.body
+    console.log(email);
 
+    if (!username && !email) {
+        throw new ApiError(400, "username or email is required")
+    }
     const user = await UsersModel.findOne({$or:[{username},{email}]})
-    if(!user){
-        res.status(404).send("User not found")
+    if (!user) {
+        throw new ApiError(404, "User does not exist")
     }
-    bcrypt.compare(password,user.password ).then(match=>{
-        if(!match){
-            res.status(400).send("Invalid credentials")
-        }
-        const token = jwt.sign({id:user._id},process.env.JWT_SECRET_KEY)
-        res.status(200).send({message:"Login successful",token})
-    })
-}catch(err){
-    res.status(500).send({error:err.message})
-}
+    const isPasswordValid = await user.isPasswordCorrect(password)
 
-}
-
-const updateUser = async(req,res)=>{
-    const userID = req.params.id
-    if(userID !== req.user.id){
-        res.status(401).send("Unauthorized")
-    }
-    const {name,email,password,avatar,interests} = req.body
-    if(!name||!email||!password){
-        res.status(400).send("All fields are required")
+    if (!isPasswordValid) {
+    throw new ApiError(401, "Invalid user credentials")
     }
 
-    const hashedPassword = await bcrypt.hash(password,+process.env.SALT_ROUNDS)
-    upload.single("file")(req,res,async(err)=>{
-        if(err){
-            return res.status(400).send("Error uploading file")
-        }
+    const {accessToken, refreshToken} = await generateAccessAndRefereshTokens(user._id)
+    const ownerGroups = await GroupsModel.find({  owner: user._id  })
+    const memberGroups = await GroupsModel.find({  members: user._id  })
+    const userEvents = await EventsModel.find({$or:[{owner:user._id},{attendees:user._id}]})
+    const loggedInUser = await UsersModel.findById(user._id).select("-password -refreshToken")
 
-    const user = await UsersModel.findByIdAndUpdate(userID,{name,email,password:hashedPassword,avatar,interests})
-        if(!user){
-            res.status(404).send("User not found")
-        }
-        res.status(200).send("User updated successfully")
-    })
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
+    .json(
+        new ApiResponse(
+            200, 
+            {
+                user: loggedInUser,ownerGroups,userEvents,memberGroups, accessToken, refreshToken
+            },
+            "User logged In Successfully"
+        )
+    )
+
+
+})
+
+const updatePassword = asyncHandler(async(req,res)=>{
     
-}
+    const {oldPassword, newPassword} = req.body
+    const userID = req.user.id
+    const user = await UsersModel.findById(userID)
+    if(!user){
+        throw new ApiError(404,"User not found")
+    }
+    const isPasswordValid = await user.isPasswordCorrect(oldPassword)
+    if(!isPasswordValid){
+        throw new ApiError(401,"Invalid password")
+    }
+    const hashedPassword = await bcrypt.hash(newPassword,+process.env.SALT_ROUNDS)
+    user.password = hashedPassword
+    await user.save()
+    return res
+    .status(200)
+    .json(new ApiResponse(200,{},"Password updated successfully"))
+})
 
-const deleteUser = async(req,res)=>{
+const updateUser = asyncHandler( async(req,res)=>{
+    const userID = req.params.id
+    if(userID !== req.user.id){
+        throw new ApiError(401,"Unauthorized")
+    }
+    const {name,email,avatar,interests} = req.body
+    if(!name||!email||!interests){
+        throw new ApiError(400,"All fields are required")
+    }
+    const user = await UsersModel.findByIdAndUpdate(userID,{
+        $set:
+            { 
+                name,
+                email,
+                interests
+            }
+    }).select("-password -refreshToken")
+    if(!user){
+        throw new ApiError(404,"User not found")
+    }
+        
+    return res
+    .status(200)
+    .json(new ApiResponse(200, user, "Account details updated successfully"))
+    
+})
+
+const deleteUser = asyncHandler(async(req,res)=>{
 
     const userID = req.params.id
     if(userID !== req.user.id){
-        res.status(401).send("Unauthorized")
+        throw new ApiError(401,"Unauthorized")
     }
     const user = await UsersModel.findByIdAndDelete(userID)
     if(!user){
-        res.status(404).send("User not found")
+        throw new ApiError(404,"User not found")
     }
-    res.status(200).send("User deleted successfully")
-    
-}
 
-const logout = async(req,res)=>{
+    return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "User deleted successfully"))
+    
+})
+
+const logout = asyncHandler(async(req,res)=>{
+    await UsersModel.findByIdAndUpdate(
+        req.user._id,
+        {
+            $unset: {
+                refreshToken: 1 // this removes the field from document
+            }
+        },
+        {
+            new: true
+        }
+    )
+
     const token = req.header.autherization.split(" ")[1];
     const blacklist = new BlacklistModel({
         token
     })
     await blacklist.save()
-    res.status(200).send("Logout successful")
-}
+
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json(new ApiResponse(200, {}, "User logged Out"))
+    
+})
 
 module.exports = {
     register,
     login,
     updateUser,
     deleteUser,
-    logout
+    logout,
+    updatePassword
 }
 
 

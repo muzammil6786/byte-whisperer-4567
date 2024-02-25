@@ -104,3 +104,7 @@ const password = document.getElementById("password");
     })
     e.target.reset();
 })
+
+
+let str ="flex flex-col h-fit p-5 m-5 shadow-md rounded-md w-1/2 shadow-accent-light dark:shadow-accent-dark bg-Secondary-light dark:bg-Secondary-dark"
+let arr = str.split(" ");

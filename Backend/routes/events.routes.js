@@ -2,6 +2,7 @@ const eventController = require("../controllers/events.controller")
 const auth = require("../middlewares/auth.middleware")
 
 const eventRouter = require("express").Router()
+
 eventRouter.post("/",auth,eventController.createEvent)
 eventRouter.get("/",auth,eventController.getAllEvents)
 eventRouter.get("/:id",auth,eventController.getEvent)
