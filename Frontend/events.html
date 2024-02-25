@@ -1,0 +1,717 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <title>Events</title>
+  <script src="https://kit.fontawesome.com/702047a831.js" crossorigin="anonymous"></script>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #navbar {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #252422;
+  }
+
+  #with-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+  }
+
+  #with-search i {
+    background-color: #EB5E28;
+    width: 20px;
+    height: 15px;
+    border: 1px solid #FFFCF2;
+    border-radius: 10%;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+
+  }
+
+  #with-search i:hover {
+    scale: 1.1;
+  }
+
+  #with-search input {
+    border-radius: 0px;
+  }
+
+  .first {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px 10px 20px;
+    /* border-right:1px solid #EB5E28; */
+  }
+
+  .first input {
+    width: 200px;
+    height: 15px;
+    padding: 20px 20px 10px 10px;
+    background-color: #252422;
+    color: #FFFCF2;
+    border: 1px solid #FFFCF2;
+    border-radius: 10px;
+    border-color: #FFFCF2;
+
+  }
+
+  .first {
+    background-color: #252422;
+  }
+
+  .first img {
+    height: 90px;
+    width: 120px;
+  }
+
+  .second {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .second {
+
+    display: flex;
+    gap: 20px;
+    color: #FFFCF2;
+    padding: 10px;
+    gap: 90px;
+
+  }
+
+  .second a:hover {
+    color: #EB5E28;
+  }
+
+  .second a {
+    color: #FFFCF2;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+  }
+
+  .fa-solid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  #connections {
+    display: flex;
+    gap: 10px;
+  }
+
+  #connections i {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  #messages {
+    display: flex;
+    gap: 10px;
+  }
+
+  #messages i {
+    display: flex;
+
+  }
+
+  #notifications {
+    display: flex;
+    gap: 10px;
+  }
+
+  #notifications i {
+    display: flex;
+    gap: 10px;
+
+  }
+
+  #body {
+    padding: 60px;
+    font-size: 50px;
+  }
+
+  .anchormz {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .anchormz a {
+    text-decoration: none;
+    color: #EB5E28;
+    font-size: 40px;
+
+  }
+
+  .anchormz a:hover {
+    text-decoration: underline;
+  }
+
+
+  /* dropdown */
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .dropbtn {
+    padding-right: 30px;
+    padding-left: 30px;
+    /* Adjust the padding to make room for the arrow */
+    background-color: #252422;
+    color: white;
+    border: 1px solid #FFFCF2;
+    border-radius: 5px;
+    border-color: #FFFCF2;
+    height: 40px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Dropdown arrow */
+  .dropbtn::after {
+    content: '\25BE';
+    /* Unicode character for down arrow */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropmz {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  /* cards */
+
+
+
+  .cardmz {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #EB5E28;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 50%;
+    margin-top: 30px;
+    text-decoration: none;
+  }
+
+  .cardmz img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .cardmz-content {
+    padding: 20px;
+    color: black;
+  }
+
+  .cardmz-content h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: black;
+
+  }
+
+  .cardmz-content p {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+  }
+
+  .datetimemz {
+    font-style: italic;
+    color: #666;
+  }
+
+  .mzcards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* events */
+
+   /* ------------------footer----------- */
+   #footer {
+            /* comment this first line while using footer */
+            margin-top: 10px;
+            background-color: #252422;
+            height: 450px;
+            padding: 40px;
+        }
+
+
+        #footer-items {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        #first {
+            background-color: transparent;
+        }
+
+
+
+        #first>p {
+            background-color: transparent;
+            color: #CCC5B9;
+            font-size: 20px;
+        }
+
+        .h2 {
+            background-color: #252422;
+            color: #FFFCF2;
+        }
+
+        #second {
+            background-color: transparent;
+        }
+
+        #second>p {
+            background-color: transparent;
+            color: #CCC5B9;
+            font-size: 17px;
+            padding: 3px;
+        }
+
+        #third {
+            background-color: transparent;
+
+        }
+
+        #third-content a {
+            display: grid;
+            text-decoration: none;
+            color: #CCC5B9;
+            font-size: 17px;
+            padding: 3px;
+        }
+
+        #third-content a:hover {
+            color: #EB5E28;
+
+        }
+
+        #third-heading h2 {
+            margin-bottom: 10px;
+        }
+
+        #fourth h2 {
+            margin-bottom: 10px;
+        }
+
+        #location {
+            display: flex;
+
+        }
+
+        #location-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        #contact-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        #email-icon {
+            color: #EB5E28;
+            width: 25px;
+        }
+
+        svg {
+
+            height: 20px;
+        }
+
+        #contact {
+
+            display: flex;
+        }
+
+        #email {
+            display: flex;
+        }
+
+        #location-address p {
+            color: rgb(155, 155, 155);
+        }
+
+        #contact-info {
+            color: rgb(155, 155, 155);
+        }
+
+        #email-info {
+            color: rgb(155, 155, 155);
+        }
+
+        #container {
+            margin-top: 160px;
+            width: 100%;
+            border: 1px solid #FFFCF2;
+
+        }
+
+        #copyright p {
+            color: #ddd9d2;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+
+        #How_works h2 {
+            background-color: transparent;
+        }
+
+        #Navbar-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 86px;
+            margin-right: 10px;
+        }
+</style>
+
+<body>
+  <section id="navbar">
+    <div id="navbar">
+
+      <div class="first">
+        <img src="../image.start/try3.png" alt="">
+        <input type="text" placeholder=" Search event">
+        <div id="with-search">
+          <input type="text" placeholder=" Your City">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <div class="second">
+        <!-- <a href="#">Try for free</a> -->
+
+        <div id="connections">
+          <i class="fa-solid fa-users"></i>
+          <a href="#">Connections</a>
+        </div>
+
+        <div id="messages">
+          <i class="fa-solid fa-message"></i>
+          <a href="#">Messages</a>
+        </div>
+
+
+        <div id="notifications">
+          <i class="fa-solid fa-bell"></i>
+          <a href="#">Notifications</a>
+
+        </div>
+      </div>
+    </div>
+    <div>
+
+    </div>
+
+    </div>
+  </section>
+
+
+  <section>
+    <div id="body">
+      <h3>Welcome,User 👋</h3>
+      <h6>Upcoming events</h6>
+    </div>
+  </section>
+
+
+  <!-- events and groups div designed -->
+  <div class="anchormz">
+    <a href="events.html">Events</a>
+    <a href="groups.html">Groups</a>
+  </div>
+
+  <!-- dropdown -->
+  <div class="dropmz">
+
+
+    <div class="dropdown" onclick="toggleDropdown(1)">
+      <button class="dropbtn" id="btn1">Any day</button>
+      <div class="dropdown-content" id="dropdown1">
+        <a href="#" onclick="changeButtonName('btn1')">Item 1</a>
+        <a href="#" onclick="changeButtonName('btn1')">Item 2</a>
+        <a href="#" onclick="changeButtonName('btn1')">Item 3</a>
+      </div>
+    </div>
+    <div class="dropdown" onclick="toggleDropdown(2)">
+      <button class="dropbtn" id="btn2">Any type</button>
+      <div class="dropdown-content" id="dropdown2">
+        <a href="#" onclick="changeButtonName('btn2')">Item 1</a>
+        <a href="#" onclick="changeButtonName('btn2')">Item 2</a>
+        <a href="#" onclick="changeButtonName('btn2')">Item 3</a>
+      </div>
+    </div>
+    <div class="dropdown" onclick="toggleDropdown(3)">
+      <button class="dropbtn" id="btn3">Any distance</button>
+      <div class="dropdown-content" id="dropdown3">
+        <a href="#" onclick="changeButtonName('btn3')">Item 1</a>
+        <a href="#" onclick="changeButtonName('btn3')">Item 2</a>
+        <a href="#" onclick="changeButtonName('btn3')">Item 3</a>
+      </div>
+    </div>
+    <div class="dropdown" onclick="toggleDropdown(4)">
+      <button class="dropbtn" id="btn4">Any category</button>
+      <div class="dropdown-content" id="dropdown4">
+        <a href="#" onclick="changeButtonName('btn4')">Item 1</a>
+        <a href="#" onclick="changeButtonName('btn4')">Item 2</a>
+        <a href="#" onclick="changeButtonName('btn4')">Item 3</a>
+      </div>
+    </div>
+    <div class="dropdown" onclick="toggleDropdown(5)">
+      <button class="dropbtn" id="btn5">Sort by: relevance</button>
+      <div class="dropdown-content" id="dropdown5">
+        <a href="#" onclick="changeButtonName('btn5')">Sort by: date</a>
+        <a href="#" onclick="changeButtonName('btn5')">Sort by: relevance</a>
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <!-- dropdown -->
+
+
+  <!-- cards -->
+
+  <div class="mzcards">
+
+
+    <a href="page1.html" class="cardmz">
+      <img src="image.start/event1.png" alt="Image 1">
+      <div class="cardmz-content">
+        <h2>Heading 1</h2>
+        <p class="datetimemz">Date Time 1</p>
+        <p>Description 1</p>
+      </div>
+    </a>
+
+    <a href="page2.html" class="cardmz">
+      <img src="image.start/event2.png" alt="Image 2">
+      <div class="cardmz-content">
+        <h2>Heading 2</h2>
+        <p class="datetimemz">Date Time 2</p>
+        <p>Description 2</p>
+      </div>
+    </a>
+
+    <a href="page3.html" class="cardmz">
+      <img src="./image.start/event3.png" alt="Image 3">
+      <div class="cardmz-content">
+        <h2>Heading 3</h2>
+        <p class="datetimemz">Date Time 3</p>
+        <p>Description 3</p>
+      </div>
+    </a>
+
+    <a href="page4.html" class="cardmz">
+      <img src="./image.start/event4.png" alt="Image 4">
+      <div class="cardmz-content">
+        <h2>Heading 4</h2>
+        <p class="datetimemz">Date Time 4</p>
+        <p>Description 4</p>
+      </div>
+    </a>
+
+
+
+  </div>
+  <!-- cards -->
+  <!-- events and groups div -->
+
+
+
+
+
+
+
+  <!-- footer -->
+   <!-- footer -->
+    <!-- Footer --------------------------->
+
+    <section>
+
+      <div id="footer">
+          <div id="footer-items">
+              <div id="first">
+                  <img src="image.start/try3.png" id="Navbar-logo">
+                  <p>Eventous is an Event</p>
+                  <p>Management company. Our</p>
+                  <p>commitment to Privacy and</p>
+                  <p>Creativity has given us the</p>
+                  <p>more than 100k Happy users.</p>
+              </div>
+              <div id="second">
+                  <p>
+                  <h2 class="h2">Quick links</h2>
+                  </p>
+                  <p>Playnow - Video Streaming Platform</p>
+                  <p>Melodify - Music Streaming Platform</p>
+                  <p>Eventz - Event Ticketing Platform</p>
+                  <p>Portfolio</p>
+                  <p>Tradeshows</p>
+
+              </div>
+              <div id="third">
+                  <div id="third-heading">
+                      <p>
+                      <h2 class="h2">Our Policy</h2>
+                      </p>
+                  </div>
+                  <div id="third-content">
+                      <a href="#">Privacy policy</a>
+                      <a href="#">Refund Policy</a>
+                      <a href="#">Terms and Conditions</a>
+                      <a href="#">Case Studies</a>
+                      <!-- <p>Privacy policy</p>
+              <p>Refund Policy</p>
+              <p>Terms and Conditions</p>
+              <p>Case Studies</p> -->
+                  </div>
+              </div>
+              <div id="fourth">
+                  <h2 class="h2">Contact Us</h2>
+                  <div id="location">
+                      <div id="location-icon">
+                          <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div id="location-address">
+                          <p><b>
+                                  <h3 style="color:#CCC5B9;">Head Office</h3>
+                              </b></p>
+                          <p>Near,Rajiv Chowk</p>
+                          <p>Metro Station New,</p>
+                          <p>delhi-110001</p>
+                      </div>
+                  </div>
+
+                  <div id="contact">
+                      <div>
+                          <div id="contact-icon"><i class="fa-solid fa-phone"></i>
+                          </div>
+                      </div>
+                      <div id="contact-info">
+                          <p><b>
+                                  <h3 style="color:#CCC5B9;">Contact Number</h3>
+                              </b></p>
+                          <p>1800-180-9898</p>
+                      </div>
+                  </div>
+                  <div id="email">
+                      <div>
+                          <div id="email-icon"> <i class="fa-solid fa-envelope"></i> </div>
+                      </div>
+                      <div id="email-info">
+                          <p><b>
+                                  <h3 style="color:#CCC5B9;"> Email</h3>
+                              </b></p>
+                          <p>Eventous@management.com</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <section>
+              <!-- <div id="container"></div> -->
+              <div id="copyright">
+                  <p>Copyright © 2024 Eventous | All rights reserved.</p>
+              </div>
+          </section>
+      </div>
+  </section>
+
+</body>
+
+</html>
+<script>
+  function toggleDropdown(num) {
+    var dropdown = document.getElementById("dropdown" + num);
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i] !== dropdown) {
+        dropdowns[i].style.display = "none";
+      }
+    }
+    if (dropdown.style.display === "none") {
+      dropdown.style.display = "block";
+    } else {
+      dropdown.style.display = "none";
+    }
+  }
+
+  function changeButtonName(buttonId) {
+    var button = document.getElementById(buttonId);
+    var dropdown = button.nextElementSibling;
+    var selectedItem = dropdown.querySelector(":hover").innerText;
+    button.innerText = selectedItem;
+    dropdown.style.display = "none";
+  }
+</script>
