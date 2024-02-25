@@ -1,6 +1,5 @@
 const {UsersModel} = require("../models/users.model.js")
 const BlacklistModel = require("../models/blacklist.model")
-const jwt = require("jsonwebtoken")
 const GroupsModel = require("../models/groups.model")
 const EventsModel = require("../models/events.model")
 require("dotenv").config()
