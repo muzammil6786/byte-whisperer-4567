@@ -35,7 +35,6 @@ io.on("connection",(socket)=>{
         console.log("Client disconnected",socket.id)
     })
 })
-console.log(server);
 
 server.listen(process.env.PORT,async()=>{
     await connectDB
