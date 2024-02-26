@@ -53,8 +53,18 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
 
 ![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/3b30fa79-dfb8-411e-8f1e-a8eb68c3f4b7)
 
+**CREATE GROUP**
+
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/4741163d-1ece-43fd-8b2b-20a8001a1a62)
 
 
-**LOGIN AND SIGN IN**
+
+## LOGIN
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/533672e1-b823-4ad1-861e-f8b216bfa21d)
+
+
+## **SIGN IN**
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/0310c49b-c2aa-4689-8625-711a454ec44f)
+
 
 ## THANK YOU 🙏
