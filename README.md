@@ -42,6 +42,12 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
  <li> https://www.linkedin.com/in/vaibhav-singh-8b834445/</li>
 </ul
 
+## Features
+
+- **User Authentication:** Secure user authentication system to register and log in.
+- **Group Creation :** One Stop Solution for User Group-Creation as per their demand.
+- **Support:** 24*7 Support from Team .
+- **Responsive Design:** Ensure a smooth user experience across various devices.
 
 # PROJECT LOGO
 
