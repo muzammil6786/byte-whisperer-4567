@@ -55,6 +55,11 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
 
 
 ## Screenshots
+**HOME**
+
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/1d7f29c8-a7b9-4eb0-bc52-26d0c3e35850)
+
+
 **LOGIN FORM**
 
 ![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/3b30fa79-dfb8-411e-8f1e-a8eb68c3f4b7)
