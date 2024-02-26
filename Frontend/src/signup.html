@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./srcoutput.css">
     <title>Sign Up</title>
 </head>
-<body>
-    <div>
-    <div class="h-full w-full bg-primary-light  dark:bg-primary-dark text grid md:grid-cols-2 gap-3 items-center">
-        
-    <form id="signupForm" class="m-auto bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
+<body class=" bg-[url('https://img.freepik.com/free-photo/diverse-people-doing-fist-bump-park_53876-104387.jpg?t=st=1708947787~exp=1708951387~hmac=08e547de0336824be312c04a84cd3eefd2186d53f630196db44ac35f7f0239dc&w=1380')] bg-opacity-50 h-dvh  flex flex-col justify-center items-center ">
+      
+    <form id="signupForm" class=" bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
         <h1 class="col-span-2 text-center text-3xl font-bold">Sign Up</h1>
         <label class="col-span-1 font-semibold text-xl " for="">Name </label>
         <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Name" id="name" type="text " name="name">
@@ -28,14 +26,11 @@
         <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Password" id="password" type="password" name="interest">
 
 
-        <input class="text-wordPrimary-light dark:text-wordSecondary-light p-2 rounded-md col-span-2 text-xl font-semibold  bg-accent-light dark:bg-accent-dark w-fit" type="submit" value="Register">
-        
+        <input class="text-wordPrimary-light dark:text-wordSecondary-light p-2 rounded-md  text-xl font-semibold  bg-accent-light dark:bg-accent-dark w-fit" type="submit" value="Register">
+        <button onclick=`${window.location.href="./login.html"}` class="text-wordPrimary-light dark:text-wordSecondary-light p-2 rounded-md  text-xl font-semibold bg-accent-light dark:bg-accent-dark w-fit">Login</button>
+
 
     </form>
-</div>
-
-</div>
-
 </body>
 <script src="./signup.js"></script>
 </html>

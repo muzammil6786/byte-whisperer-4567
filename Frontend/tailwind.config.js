@@ -7,23 +7,23 @@ module.exports = {
     colors: {
       primary:{
         dark:'#131515',
-        light:'#FFFCF2',
+        light:'#FFFFFF',
       },
       Secondary:{
         dark:'#2B2C28',
-        light:'#CCC5B9',
+        light:'#E1E5F2',
       },
       wordSecondary:{
         dark:'#339989',
-        light:'#403D39',
+        light:'#1F7A8C',
       },
       wordPrimary:{
         dark:'#FFFAFB',
-        light:'#252422',
+        light:'#022B3A',
       },
       accent:{
         dark:'#7DE2D1',
-        light:'#EB5E28',
+        light:'#BFDBF7',
       }
     }
   },
