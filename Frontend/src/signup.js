@@ -10,7 +10,7 @@ signupForm.addEventListener("submit", (e) => {
     const password = document.querySelector("#password")
     const interests =[]
 
-    fetch("http://localhost:9000/users/register", {
+    fetch("https://byte-whisperer-4567.onrender.com/users/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
