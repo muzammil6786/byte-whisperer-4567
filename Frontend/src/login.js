@@ -22,6 +22,7 @@ loginForm.addEventListener("submit", (e) => {
     }).then((data) => {
         console.log(data)
         localStorage.setItem("token", data.data.accessToken)
+        window.location.href = "../index.html"
     }).catch((err) => {
         console.log(err)
     })

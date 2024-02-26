@@ -26,6 +26,7 @@ signupForm.addEventListener("submit", (e) => {
         return res.json()
     }).then((data) => {
         console.log(data)
+        window.location.href = "./login.html"
     }).catch((err) => {
         console.log(err)
     })

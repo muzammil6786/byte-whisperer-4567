@@ -1,28 +1,30 @@
+
 function toggleDropdown(num) {
     var dropdown = document.getElementById("dropdown" + num);
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i = 0; i < dropdowns.length; i++) {
-      if (dropdowns[i] !== dropdown) {
-        dropdowns[i].style.display = "none";
-      }
+        if (dropdowns[i] !== dropdown) {
+            dropdowns[i].style.display = "none";
+        }
     }
     if (dropdown.style.display === "none") {
-      dropdown.style.display = "block";
+        dropdown.style.display = "block";
     } else {
-      dropdown.style.display = "none";
+        dropdown.style.display = "none";
     }
-  }
+}
 
-  function changeButtonName(buttonId) {
+function changeButtonName(buttonId) {
     var button = document.getElementById(buttonId);
     var dropdown = button.nextElementSibling;
     var selectedItem = dropdown.querySelector(":hover").innerText;
     button.innerText = selectedItem;
     dropdown.style.display = "none";
-  }
+}
 
-const getAllEvents = async () => {
-    fetch("http://localhost:9000/events",{
+
+const getAllGroups = async () => {
+    fetch("http://localhost:9000/groups",{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -32,19 +34,21 @@ const getAllEvents = async () => {
         return res.json();
     }).then((data) => {
         console.log(data)
-        const events = data.data
-        displayEvents(events)
+        const groups = data.data
+        displayGroups(groups.OwnerGroups)
+        displayGroups(groups.MemberGroups)
     }).catch((err) => {
         console.log(err)
     })
 }
 
-getAllEvents()
+getAllGroups()
 
-const displayEvents =  (events) => {
-    const container = document.getElementById('eventCardsContainer')
-    // container.innerHTML = ''
-    events.array.forEach(element => {
+
+const displayGroups = (groups) => {
+    const groupsContainer = document.getElementById("groupCardsContainer")
+    // groupsContainer.innerHTML = ""
+    groups.forEach(element => {
         const anchorwrapper = document.createElement('a')
         anchorwrapper.classList.add("cardmz")
         anchorwrapper.href = `event.html?id=${element._id}`
@@ -57,11 +61,10 @@ const displayEvents =  (events) => {
         const eventDescription = document.createElement('p')
         eventDescription.innerText = element.description
         const eventDate = document.createElement('p')
-        eventDate.innerText = element.date+" "+element.time
+        eventDate.innerText =element.interests.join(" ")
         eventDate.classList.add("datetimemz")
         eventdetails.append(eventTitle , eventDate, eventDescription)
         anchorwrapper.append(eventImage, eventdetails)
-        container.append(anchorwrapper)
-    });
-    
+        groupsContainer.append(anchorwrapper)
+    })
 }
