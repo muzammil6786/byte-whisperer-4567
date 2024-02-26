@@ -1,6 +1,6 @@
 ##EventOus
 
-**Welcome to Eventous: Where Communities Come Alive!**
+**Welcome to Eventous: Where Communities Come Alive!**<br>
 Eventous isn't just another platform – it's your gateway to building vibrant communities around your passions and interests. Whether you're a political enthusiast, a creative artist, a music aficionado, or a trailblazer in any other field, Eventous offers you the tools and freedom to create, connect, and thrive.
 
 **Unleash Your Creativity**:
