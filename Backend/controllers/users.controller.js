@@ -49,7 +49,7 @@ const register = asyncHandler(async(req,res)=>{
         //const avatar = await uploadOnCloudinary(avatarLocalPath)    
         
        
-console.log(req);
+// console.log(req);
             const user = new UsersModel({
                 name,
                 username,
@@ -61,7 +61,8 @@ console.log(req);
             //})
             await user.save()
             const newUser = await UsersModel.findById(user._id).select("-password -refreshToken")
-            res.status(201).send(new ApiResponse(201, "User created successfully", newUser))
+            console.log(newUser);
+            res.status(201).send(new ApiResponse(201, newUser, "User created successfully"))
 })
 const login = asyncHandler(async(req,res)=>{
     const {email, username, password} = req.body

@@ -542,7 +542,7 @@
 
   <!-- cards -->
 
-  <div class="mzcards">
+  <div id="eventCardsContainer" class="mzcards">
 
 
     <a href="page1.html" class="cardmz">
@@ -691,27 +691,5 @@
 </body>
 
 </html>
-<script>
-  function toggleDropdown(num) {
-    var dropdown = document.getElementById("dropdown" + num);
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      if (dropdowns[i] !== dropdown) {
-        dropdowns[i].style.display = "none";
-      }
-    }
-    if (dropdown.style.display === "none") {
-      dropdown.style.display = "block";
-    } else {
-      dropdown.style.display = "none";
-    }
-  }
-
-  function changeButtonName(buttonId) {
-    var button = document.getElementById(buttonId);
-    var dropdown = button.nextElementSibling;
-    var selectedItem = dropdown.querySelector(":hover").innerText;
-    button.innerText = selectedItem;
-    dropdown.style.display = "none";
-  }
+<script src="./events.js" >
 </script>
