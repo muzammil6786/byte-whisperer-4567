@@ -42,6 +42,12 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
  <li> https://www.linkedin.com/in/vaibhav-singh-8b834445/</li>
 </ul
 
+## Features
+
+- **User Authentication:** Secure user authentication system to register and log in.
+- **Group Creation :** One Stop Solution for User Group-Creation as per their demand.
+- **Support:** 24*7 Support from Team .
+- **Responsive Design:** Ensure a smooth user experience across various devices.
 
 # PROJECT LOGO
 
@@ -49,12 +55,27 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
 
 
 ## Screenshots
+**HOME**
+
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/1d7f29c8-a7b9-4eb0-bc52-26d0c3e35850)
+
+
 **LOGIN FORM**
 
 ![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/3b30fa79-dfb8-411e-8f1e-a8eb68c3f4b7)
 
+**CREATE GROUP**
+
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/4741163d-1ece-43fd-8b2b-20a8001a1a62)
 
 
-**LOGIN AND SIGN IN**
+
+## LOGIN
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/533672e1-b823-4ad1-861e-f8b216bfa21d)
+
+
+## **SIGN IN**
+![image](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/0310c49b-c2aa-4689-8625-711a454ec44f)
+
 
 ## THANK YOU 🙏
