@@ -7,7 +7,7 @@ loginForm.addEventListener("submit", (e) => {
     const username = document.querySelector("#email")
     const password = document.querySelector("#password")
 
-    fetch("http://localhost:9000/users/login", {
+    fetch("https://byte-whisperer-4567.onrender.com/users/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

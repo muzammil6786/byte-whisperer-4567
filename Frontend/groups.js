@@ -24,7 +24,7 @@ function changeButtonName(buttonId) {
 
 
 const getAllGroups = async () => {
-    fetch("http://localhost:9000/groups",{
+    fetch("https://byte-whisperer-4567.onrender.com/groups",{
         method: "GET",
         headers: {
             "Content-Type": "application/json",

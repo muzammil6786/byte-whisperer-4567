@@ -22,7 +22,7 @@ const createEvent = (e) => {
         category: category.value
     }
 
-    fetch("http://localhost:9000/events/", {
+    fetch("https://byte-whisperer-4567.onrender.com/events/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

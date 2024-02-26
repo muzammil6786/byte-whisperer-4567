@@ -22,7 +22,7 @@ function toggleDropdown(num) {
   }
 
 const getAllEvents = async () => {
-    fetch("http://localhost:9000/events",{
+    fetch("https://byte-whisperer-4567.onrender.com/events",{
         method: "GET",
         headers: {
             "Content-Type": "application/json",
