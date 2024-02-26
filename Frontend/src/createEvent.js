@@ -32,6 +32,7 @@ const createEvent = (e) => {
         return res.json();
     }).then((data) => {
         console.log(data);
+        window.location.href ="../events.html"
     }).catch((err) => {
         console.log(err);
     })
