@@ -44,8 +44,9 @@ Ready to bring your vision to life? Dive into the world of Eventous and start bu
 
 
 # PROJECT LOGO
-<br>
-![Black and White Retro Vintage Grunge Apparel Clothing Brand Logo (3)](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/8dc07594-c40c-4d52-bee7-dda8248140ed)
+
+![Black and White Retro Vintage Grunge Apparel Clothing Brand Logo (3)](https://github.com/muzammil6786/byte-whisperer-4567/assets/125078546/8a6fb1bf-0ae2-4038-9d4b-6dde27e68fe3)
+
 
 ## Screenshots
 **LOGIN FORM**
