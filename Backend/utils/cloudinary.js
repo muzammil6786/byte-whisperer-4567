@@ -1,4 +1,4 @@
-const cloudinary = require('cloudinary');
+const  cloudinary = require('cloudinary').v2;
 const fs = require('fs')
 
 cloudinary.config({ 
@@ -16,6 +16,7 @@ cloudinary.config({
           })
           // file has been uploaded successfull
           //console.log("file is uploaded on cloudinary ", response.url);
+         console.log(response);
           fs.unlinkSync(localFilePath)
           return response;
   

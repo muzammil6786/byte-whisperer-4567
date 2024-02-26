@@ -1,7 +1,7 @@
 const {login,register,updateUser,deleteUser,logout, updatePassword } = require("../controllers/users.controller")
 const auth = require("../middlewares/auth.middleware")
 const userRouter = require("express").Router()
-
+const upload = require("../middlewares/multer.middleware")
 userRouter.post("/register",register)
 userRouter.post("/login",login)
 userRouter.patch("/update/:id",auth,updateUser)

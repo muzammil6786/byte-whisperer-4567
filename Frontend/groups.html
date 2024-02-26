@@ -518,14 +518,14 @@
 
     <!-- cards -->
 
-    <div class="mzcards">
+    <div id="groupCardsContainer" class="mzcards">
 
 
         <a href="page1.html" class="cardmz">
             <img src="image.start/event1.png" alt="Image 1">
             <div class="cardmz-content">
                 <h2>Heading 1</h2>
-                <p class="datetimemz">Date Time 1</p>
+                <p class="datetimemz">your interests</p>
                 <p>Description 1</p>
             </div>
         </a>
@@ -534,7 +534,7 @@
             <img src="image.start/event2.png" alt="Image 2">
             <div class="cardmz-content">
                 <h2>Heading 2</h2>
-                <p class="datetimemz">Date Time 2</p>
+                <p class="datetimemz">your interests</p>
                 <p>Description 2</p>
             </div>
         </a>
@@ -543,7 +543,7 @@
             <img src="./image.start/event3.png" alt="Image 3">
             <div class="cardmz-content">
                 <h2>Heading 3</h2>
-                <p class="datetimemz">Date Time 3</p>
+                <p class="datetimemz">your interests</p>
                 <p>Description 3</p>
             </div>
         </a>
@@ -552,7 +552,7 @@
             <img src="./image.start/event4.png" alt="Image 4">
             <div class="cardmz-content">
                 <h2>Heading 4</h2>
-                <p class="datetimemz">Date Time 4</p>
+                <p class="datetimemz">your interests</p>
                 <p>Description 4</p>
             </div>
         </a>
@@ -667,27 +667,5 @@
 </body>
 
 </html>
-<script>
-    function toggleDropdown(num) {
-        var dropdown = document.getElementById("dropdown" + num);
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            if (dropdowns[i] !== dropdown) {
-                dropdowns[i].style.display = "none";
-            }
-        }
-        if (dropdown.style.display === "none") {
-            dropdown.style.display = "block";
-        } else {
-            dropdown.style.display = "none";
-        }
-    }
-
-    function changeButtonName(buttonId) {
-        var button = document.getElementById(buttonId);
-        var dropdown = button.nextElementSibling;
-        var selectedItem = dropdown.querySelector(":hover").innerText;
-        button.innerText = selectedItem;
-        dropdown.style.display = "none";
-    }
+<script src="./groups.js"> 
 </script>

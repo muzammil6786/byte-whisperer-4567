@@ -10,22 +10,22 @@
     <div>
     <div class="h-full w-full bg-primary-light  dark:bg-primary-dark text grid md:grid-cols-2 gap-3 items-center">
         
-    <form class="m-auto bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
+    <form id="signupForm" class="m-auto bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
         <h1 class="col-span-2 text-center text-3xl font-bold">Sign Up</h1>
         <label class="col-span-1 font-semibold text-xl " for="">Name </label>
-        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Name" type="text " name="name">
+        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Name" id="name" type="text " name="name">
 
         <label class="col-span-1 font-semibold text-xl " for="">UserName </label>
-        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Name" type="text " name="name">
+        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Name" id="username" type="text " name="name">
 
 
         
         <label class="font-semibold text-xl " for="">Email</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Email" type="email" name="category">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Email" id="email" type="email" name="category">
 
 
         <label class="font-semibold text-xl " for="">Password</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Password" type=" text" name="interest">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Enter your Password" id="password" type="password" name="interest">
 
 
         <input class="text-wordPrimary-light dark:text-wordSecondary-light p-2 rounded-md col-span-2 text-xl font-semibold  bg-accent-light dark:bg-accent-dark w-fit" type="submit" value="Register">
@@ -37,4 +37,5 @@
 </div>
 
 </body>
+<script src="./signup.js"></script>
 </html>

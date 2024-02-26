@@ -2,18 +2,28 @@ const GroupModel = require("../models/groups.model")
 const {ApiResponse} = require("../utils/ApiResponse")
 const {ApiError} = require("../utils/ApiError")
 const { asyncHandler } = require("../utils/asyncHandler")
+const {uplodaOnCloudinary} = require("../utils/cloudinary.js")
 
 const createGroup = asyncHandler(async(req,res)=>{
     const {name,description,owner,members,interests} = req.body
     if(!name||!description||!owner||!interests ){
         throw new ApiError(400,"All fields are required")
     }
+
+   // const avatarLocalPath = req.files?.avatar[0]?.path;
+
+    
+       // const image = await uplodaOnCloudinary(avatarLocalPath)
+        
+    
+
         const newGroup = new GroupModel({
             name,
             description,
             owner,
             members:members?members:[owner],
             events:[],
+           // image:image?.url||"",
             interests
         })
         await newGroup.save()
@@ -25,8 +35,9 @@ const createGroup = asyncHandler(async(req,res)=>{
 
 const getAllGroups = asyncHandler(async(req,res)=>{
     const userID = req.user._id
-        const OwnerGroups = await GroupModel.find({  owner: userID  })
-        const memberGroups = await GroupModel.find({  members: userID  })
+    console.log(userID);
+        const OwnerGroups = await GroupModel.find({  owner: req.user._id  })
+        const memberGroups = await GroupModel.find({  members: req.user._id  })
         return res.
         status(200)
         .json(new ApiResponse(200,{OwnerGroups,memberGroups},"Groups retrieved successfully"))
