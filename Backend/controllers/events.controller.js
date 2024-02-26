@@ -16,8 +16,8 @@ const createEvent = asyncHandler(async(req,res)=>{
             time,
             location,
             seats,
-            image:"",
-            owner,
+            
+            owner :req.user._id ,
             attendees:[]
         })
         await newEvent.save()

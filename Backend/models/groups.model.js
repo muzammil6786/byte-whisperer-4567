@@ -26,6 +26,9 @@ const groupSchema = new mongoose.Schema({
     interests:{
         type:[mongoose.Schema.Types.ObjectId],
         ref:"Category"
+    },
+    image:{
+        type:String
     }
 
 },{

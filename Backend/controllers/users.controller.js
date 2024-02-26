@@ -6,6 +6,7 @@ require("dotenv").config()
 const {ApiError} = require("../utils/ApiError")
 const {ApiResponse} = require("../utils/ApiResponse.js")
 const {asyncHandler} =require("../utils/asyncHandler.js")
+const {uploadOnCloudinary} = require("../utils/cloudinary.js")
 const path = require("path")
 const bcrypt = require("bcrypt")
 const multer = require("multer")
@@ -30,10 +31,10 @@ const generateAccessAndRefereshTokens = async(userId) =>{
     }
 }
 
-const register = async(req,res)=>{
+const register = asyncHandler(async(req,res)=>{
 
-    try{
-        const {name,username,email,password,avatar,interests} = req.body
+    // console.log(req.files.avatar);
+        const {name,username,email,password,interests} = req.body
         if(!name||!username||!email||!password){
             throw new ApiError(400,"All fields are required")
         }
@@ -41,24 +42,27 @@ const register = async(req,res)=>{
         //     if(err){
         //         return res.status(400).send("Error uploading file")
         //     }
-            
+        //const avatarLocalPath = req.files?.avatar[0]?.path;
+        //const coverImageLocalPath = req.files?.coverImage[0]?.path;
+   
+    
+        //const avatar = await uploadOnCloudinary(avatarLocalPath)    
+        
+       
+console.log(req);
             const user = new UsersModel({
                 name,
                 username,
                 email,
                 password,
-                //avatar:req.file.path,
+              //  avatar:avatar?.url||"",
                 interests
             })
             //})
             await user.save()
             const newUser = await UsersModel.findById(user._id).select("-password -refreshToken")
             res.status(201).send(new ApiResponse(201, "User created successfully", newUser))
-        }catch(err){
-        res.status(500).send({error:err.message})
-    }
-}
-
+})
 const login = asyncHandler(async(req,res)=>{
     const {email, username, password} = req.body
     console.log(email);

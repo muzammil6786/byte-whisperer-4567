@@ -21,24 +21,24 @@
     </section>
     <div class="h-full w-full bg-primary-light  dark:bg-primary-dark text grid md:grid-cols-2 gap-3 items-center">
         <img class="w-[120%] rounded-lg m-auto" src="https://img.freepik.com/free-photo/concept-human-relation-community-togetherness-symbolism_155003-42793.jpg?w=740&t=st=1708875727~exp=1708876327~hmac=6f0906210adf88471194666bf9464501347b95b1c3802388898cc99f1f24b894" alt="">
-    <form class="m-auto bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
+    <form id="createEventForm" class="m-auto bg-Secondary-light dark:bg-Secondary-dark  grid  md:grid-cols-2 gap-3 p-5 text-wordSecondary-light dark:text-wordPrimary-dark gap-x-7 items-center rounded-lg shadow-md shadow-wordSecondary-light dark:shadow-accent-dark" action="">
         <h1 class="col-span-2 text-center text-3xl font-bold">Create Event</h1>
         <label class="col-span-1 font-semibold text-xl " for="">Event Name </label>
-        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Name your Event" type="text " name="name">
+        <input class= "p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Name your Event" id="name" type="text " name="name">
         <label class="font-semibold text-xl " for="">Description</label>
-        <textarea class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Tell us about the Event" name="description" id="" cols="30" rows="10"></textarea>
+        <textarea class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Tell us about the Event" name="description" id="description" cols="30" rows="10"></textarea>
         <label class="font-semibold text-xl " for="">Date</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " type="date" required placeholder="Save the Date" name="date">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " type="date" required placeholder="Save the Date" id="date" name="date">
         <label class="font-semibold text-xl "  for="">Time</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " type="time" required placeholder="When it will take place" name="time">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " type="time" required placeholder="When it will take place" id="time" name="time">
         <label class="font-semibold text-xl " for="">Location</label>
-        <input class="p-1 bg-primary-light  dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Where it will take place" type="text " name="location">
-        <label class="font-semibold text-xl " for="">Image</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Upload an image" type="file"   name="file">
+        <input class="p-1 bg-primary-light  dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Where it will take place" type="text" id="location" name="location">
+        <!-- <label class="font-semibold text-xl " for="">Image</label>
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="Upload an image" type="file" id="image"  name="file"> -->
         <label class="font-semibold text-xl " for="">Category</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="What kind of Event" type="text " name="category">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="What kind of Event" type="text" id="category" name="category">
         <label class="font-semibold text-xl " for="">Seats</label>
-        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="How many seats" type="number " name="interest">
+        <input class="p-1 bg-primary-light dark:bg-primary-dark border rounded-md text-wordPrimary-light dark:text-wordPrimary-dark " required placeholder="How many seats" type="number" id="seats" name="interest">
         <input class="text-wordPrimary-light dark:text-wordSecondary-light p-2 rounded-md col-span-2 text-xl font-semibold  bg-accent-light dark:bg-accent-dark w-fit" type="submit" value="submit">
     </form>
 </div>
